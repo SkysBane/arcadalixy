@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://t8jmw5pyprto"]
+
+[ext_resource type="Script" uid="uid://b1rpmuiwyjt8y" path="res://assets/scenes/bullet.gd" id="1_8hx1n"]
+[ext_resource type="Texture2D" uid="uid://c07jdkt2kdfsm" path="res://assets/sprites/arcadalixy bullet.png" id="1_bnlrb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bnlrb"]
+radius = 2.236068
+
+[node name="bullet" type="RigidBody2D" unique_id=1242152311]
+collision_layer = 2
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("1_8hx1n")
+
+[node name="ArcadalixyBullet" type="Sprite2D" parent="." unique_id=447112362]
+scale = Vector2(3.68, 3.68)
+texture = ExtResource("1_bnlrb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1575257690]
+shape = SubResource("CircleShape2D_bnlrb")
