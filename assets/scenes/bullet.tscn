@@ -3,8 +3,23 @@
 [ext_resource type="Script" uid="uid://b1rpmuiwyjt8y" path="res://assets/scenes/bullet.gd" id="1_8hx1n"]
 [ext_resource type="Texture2D" uid="uid://c07jdkt2kdfsm" path="res://assets/sprites/arcadalixy bullet.png" id="1_bnlrb"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_bnlrb"]
-radius = 2.236068
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8hx1n"]
+radius = 2.0
+height = 14.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8hx1n"]
+lifetime_randomness = 0.29
+particle_flag_disable_z = true
+inherit_velocity_ratio = 0.5
+direction = Vector3(0, 1, 0)
+spread = 180.0
+initial_velocity_min = 2.1
+initial_velocity_max = 34.95
+gravity = Vector3(0, 0, 0)
+scale_min = 3.5
+scale_max = 3.5
+color = Color(1, 1, 1, 0.57254905)
+turbulence_enabled = true
 
 [node name="bullet" type="RigidBody2D" unique_id=1242152311]
 collision_layer = 2
@@ -13,8 +28,16 @@ gravity_scale = 0.0
 script = ExtResource("1_8hx1n")
 
 [node name="ArcadalixyBullet" type="Sprite2D" parent="." unique_id=447112362]
-scale = Vector2(3.68, 3.68)
+position = Vector2(0, -4.7683716e-07)
+scale = Vector2(3.68, 13.839999)
 texture = ExtResource("1_bnlrb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1575257690]
-shape = SubResource("CircleShape2D_bnlrb")
+shape = SubResource("CapsuleShape2D_8hx1n")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1894492588]
+position = Vector2(0, 6)
+amount = 40
+lifetime = 0.15000000000000002
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_8hx1n")

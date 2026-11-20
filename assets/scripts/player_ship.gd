@@ -48,13 +48,18 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func fire_bullet():
-	var bullet : RigidBody2D = bullet_scene.instantiate()
-	get_tree().root.add_child(bullet)
-	bullet.global_position = global_position
-	bullet.global_rotation = global_rotation
+	var bullet = bullet_scene.instantiate()
+
 	
 	var forward = Vector2.UP.rotated(global_rotation)
-	bullet.linear_velocity = forward * 500 + velocity
-	bullet.add_constant_force(forward * 10)
-	#bullet.bullet.max_speed = 2
+	bullet.linear_velocity = forward * 60 + velocity 
+	bullet.add_constant_force(forward * 100)
+	bullet.global_position = global_position + forward * 15
+	bullet.global_rotation = global_rotation
+	bullet.setup(200.0)
+	
+	
+	# this calls _ready() inside bullet and adds it to the scene
+	get_tree().root.add_child(bullet)
+
 	

@@ -1,6 +1,9 @@
 extends RigidBody2D
 
-@export var max_speed := 300
+@export var max_speed := 300.0
+
+func setup(speed : float):
+	max_speed = speed
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
